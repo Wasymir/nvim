@@ -1,0 +1,19 @@
+{
+    "workspace.library": [
+        "/home/was/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/share/nvim/runtime/lua",
+        "/home/was/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/home/was/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/mason.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/lualine.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/fidget.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/home/was/.local/share/nvim/lazy/nvim-treesitter/lua",
+        "/home/was/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/home/was/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/home/was/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
