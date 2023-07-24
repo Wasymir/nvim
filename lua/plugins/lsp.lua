@@ -57,7 +57,8 @@ return {
 
 
 		mason_lspconfig.setup {
-			ensure_installed = vim.tbl_keys(servers)
+			ensure_installed = vim.tbl_keys(servers),
+            automatic_installation = true,
 		}
 
 		mason_lspconfig.setup_handlers {
@@ -69,6 +70,10 @@ return {
 				}
 			end
 		}
+
+        vim.diagnostic.config({
+            severity_sort= false,
+        })
 
 
 

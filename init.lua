@@ -19,6 +19,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {'numToStr/Comment.nvim', config=true},
     { import = "plugins" }
 })
 
