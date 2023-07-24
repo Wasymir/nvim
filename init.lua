@@ -19,7 +19,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {'numToStr/Comment.nvim', config=true},
+    { 'numToStr/Comment.nvim', config = true },
+    'tpope/vim-sleuth',
     { import = "plugins" }
 })
 
@@ -36,12 +37,6 @@ vim.o.wrap = false
 
 vim.o.number = true
 vim.o.relativenumber = true
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -66,4 +61,3 @@ vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to system clip
 
 vim.o.mouse = nil
 vim.o.ttymouse = nil
-
