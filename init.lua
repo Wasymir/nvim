@@ -1,4 +1,5 @@
 -- init inspired, and by that I mean I stole their code, by kickstart.nvim and ThePrimeagen's config.
+require('rust')
 
 
 
@@ -19,8 +20,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    { 'numToStr/Comment.nvim', config = true },
     'tpope/vim-sleuth',
+    { 'numToStr/Comment.nvim',    config = true },
     { import = "plugins" }
 })
 
@@ -41,7 +42,7 @@ vim.o.relativenumber = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 
 vim.opt.updatetime = 50
 
@@ -58,6 +59,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "[P]aste from system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to system clipboard" })
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.o.mouse = nil
 vim.o.ttymouse = nil

@@ -1,11 +1,19 @@
 return {
 	'neovim/nvim-lspconfig',
 	dependencies = {
-		{'williamboman/mason.nvim', config = true, built = 'MasonUpdate'},
-		'williamboman/mason-lspconfig.nvim',
-		{'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 		'folke/neodev.nvim',
+		'williamboman/mason-lspconfig.nvim',
+		{
+			'ray-x/lsp_signature.nvim',
+			config = function()
+				require('lsp_signature').setup({
+					hint_enable = false
+				})
+			end
 		},
+		{ 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+		{ 'williamboman/mason.nvim', config = true,  built = 'MasonUpdate' },
+	},
 	config = function()
 		vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 		vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
@@ -19,21 +27,21 @@ return {
 				end
 				vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 			end
-			  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-			  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-			  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-			  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-			  nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-			  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-			  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-			  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-			  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-			  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-			  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-			  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-				  vim.lsp.buf.format()
-			  end, { desc = 'Format current buffer with LSP' })
-
+			nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+			nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+			nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+			nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+			nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+			nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+			nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+			nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+				'[W]orkspace [S]ymbols')
+			nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+			nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+			nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+			vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+				vim.lsp.buf.format()
+			end, { desc = 'Format current buffer with LSP' })
 		end
 
 		require("neodev").setup({})
@@ -58,7 +66,7 @@ return {
 
 		mason_lspconfig.setup {
 			ensure_installed = vim.tbl_keys(servers),
-            automatic_installation = true,
+			automatic_installation = true,
 		}
 
 		mason_lspconfig.setup_handlers {
@@ -71,11 +79,8 @@ return {
 			end
 		}
 
-        vim.diagnostic.config({
-            severity_sort= false,
-        })
-
-
-
+		vim.diagnostic.config({
+			severity_sort = false,
+		})
 	end
 }
