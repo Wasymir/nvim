@@ -44,6 +44,8 @@ vim.opt.incsearch = true
 
 vim.opt.scrolloff = 10
 
+vim.opt.swapfile = false
+
 vim.opt.updatetime = 50
 
 vim.keymap.set("n", "n", "nzzz")
@@ -62,5 +64,14 @@ vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to system clip
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+
+
 vim.o.mouse = nil
 vim.o.ttymouse = nil
+
+
+
